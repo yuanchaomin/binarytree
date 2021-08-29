@@ -55,7 +55,7 @@ _SVG_XML_TEMPLATE = """
 </svg>
 """
 
-NodeValue = Union[float, int]
+NodeValue = Union[float, int, str]
 
 
 @dataclass
@@ -201,12 +201,12 @@ class Node:
                 raise NodeTypeError("right child must be a Node instance")
 
         elif attr == _ATTR_VALUE:
-            if not isinstance(obj, (float, int)):
+            if not isinstance(obj, (float, int, str)):
                 raise NodeValueError("node value must be a float or int")
             object.__setattr__(self, _ATTR_VAL, obj)
 
         elif attr == _ATTR_VAL:
-            if not isinstance(obj, (float, int)):
+            if not isinstance(obj, (float, int,str)):
                 raise NodeValueError("node value must be a float or int")
             object.__setattr__(self, _ATTR_VALUE, obj)
 
