@@ -30,14 +30,9 @@ Python 3.6+
 Install via [pip](https://pip.pypa.io):
 
 ```shell
-pip install binarytree
+pip install https://github.com/yuanchaomin/binarytree.git
 ```
 
-For [conda](https://docs.conda.io) users:
-
-```shell
-conda install binarytree -c conda-forge
-```
 
 ## Getting Started
 
@@ -118,6 +113,27 @@ print(root)
 #      4
 #
 ```
+
+Build trees with letters
+```python
+from binarytree import Node
+
+root = Node('A')
+root.left = Node('B')
+root.right = Node('C')
+root.left.right = Node('D')
+
+
+print(root)
+#   __A
+#  /   \
+# B     C
+#  \
+#   D
+```
+
+
+
 
 Inspect tree properties:
 
@@ -306,6 +322,19 @@ print(root)
 # Go back to list representation
 print(root.values) 
 # [7, 3, 2, 6, 9, None, 1, 5, 8]
+
+# Build a tree associating with string
+values2 = list('HELLO WORLD!')
+root2 = build(values2)
+print(root2)
+#         ______H____
+#        /           \
+#     __E__           L
+#    /     \         / \
+#   L       O           W
+#  / \     / \     /
+# O   R   L   D   !
+
 ```
 
 Binarytree supports another representation which is more compact but without
